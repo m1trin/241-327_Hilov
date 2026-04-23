@@ -1,7 +1,6 @@
 import os
 import sys
 import django
-from faker import Faker
 import random
 
 # Добавляем путь к корневой папке проекта
@@ -18,7 +17,6 @@ def add_cars_to_db(count=100):
     """
     Добавляет указанное количество машин в базу данных
     """
-    fake = Faker('ru_RU')  # Используем русскую локализацию для реалистичных данных
     
     brands_models = {
         'Toyota': ['Camry', 'Corolla', 'Land Cruiser', 'RAV4', 'Prius', 'Yaris', 'Avensis'],
@@ -45,7 +43,6 @@ def add_cars_to_db(count=100):
         brand = random.choice(list(brands_models.keys()))
         model = random.choice(brands_models[brand])
         
-        # Генерируем год (от 1990 до 2024)
         year = random.randint(1990, 2024)
         
         if year >= 2020:
@@ -119,7 +116,6 @@ if __name__ == "__main__":
     # Проверяем подключение к БД
     try:
         Car.objects.exists()
-        print(" Подключение к базе данных успешно\n")
     except Exception as e:
         print(f" Ошибка подключения к БД: {e}")
         print("Проверьте настройки в lab1/settings.py")
