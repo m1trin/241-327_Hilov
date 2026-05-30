@@ -1,11 +1,11 @@
 server {
     listen 80;
-    listen 443 ssl;
+    #listen 443 ssl;
 
     server_name _;
 
-    ssl_certificate /etc/nginx/certs/lab2.crt;
-    ssl_certificate_key /etc/nginx/certs/lab2.key;
+    #ssl_certificate /etc/nginx/certs/lab2.crt;
+    #ssl_certificate_key /etc/nginx/certs/lab2.key;
 
     include /etc/nginx/mime.types;
     sendfile on;
